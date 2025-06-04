@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>CV Kreatif - Muhammad Sunardi Almuhajir (Ahmad)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Chosen Palette: Senja Kreatif (Dasar: #F8F7F4 (latar), Aksen Utama: #4A5568 (abu tua), Aksen Sekunder: #D58A76 (jingga lembut), Teks Utama: #2D3748 (abu gelap)) -->
+    <!-- Application Structure Plan: CV ini dirancang dengan pendekatan "visual storytelling" dalam satu halaman. Dimulai dengan Hero Section yang kuat menampilkan foto, nama, dan tagline. Diikuti oleh Profil/Tentang Saya yang lebih naratif. Kemudian Keterampilan disajikan secara visual. Pengalaman Kerja dibuat sebagai timeline interaktif atau kartu yang menonjolkan pencapaian. Bagian baru untuk Pelatihan/Seminar dan Proyek Online ditambahkan untuk menunjukkan inisiatif dan pembelajaran berkelanjutan. Pendidikan dan Organisasi disajikan secara ringkas namun jelas. Aspirasi Karir dan Kontak menutup halaman. Struktur ini dipilih untuk memandu perekrut melalui perjalanan Ahmad secara menarik, bukan sekadar daftar data, dan menonjolkan aspek kreatif serta pencapaian. -->
+    <!-- Visualization & Content Choices: 1. Profil: Teks naratif. Goal -> Introduce. Justification -> Memberi sentuhan personal. 2. Keterampilan: Tag cloud / bar visual (HTML/CSS). Goal -> Highlight skills. Justification -> Lebih menarik dari daftar biasa. 3. Pengalaman Kerja: Kartu dengan detail dan ikon (HTML/CSS), menonjolkan pencapaian terukur. Goal -> Showcase experience & achievements. Justification -> Memecah informasi dan menonjolkan poin penting. 4. Pelatihan & Seminar: Daftar terstruktur dengan ikon dan link ke blog. Goal -> Demonstrate continuous learning. Justification -> Penting bagi HRD. 5. Proyek Online: Kartu atau daftar link dengan deskripsi. Goal -> Show tangible output & initiative. Justification -> Bukti nyata kemampuan. 6. Pendidikan & Organisasi: Daftar terstruktur. Goal -> Inform. Justification -> Penyajian data formal yang jelas. 7. Kontak: Ikon dan link. Goal -> Facilitate contact. Justification -> Mudah diakses. Foto: Menggunakan URL dari user. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F7F4;
+            color: #2D3748;
+            scroll-behavior: smooth;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #E2E8F0 0%, #CBD5E0 100%);
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: #D58A76;
+            margin-top: 8px;
+        }
+        .skill-tag {
+            transition: all 0.3s ease;
+        }
+        .skill-tag:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .experience-card, .project-card, .training-card {
+            border-left: 4px solid #D58A76;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .experience-card:hover, .project-card:hover, .training-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(45, 55, 72, 0.15);
+        }
+        .icon-bg {
+            background-color: #D58A76;
+            color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        nav a {
+            transition: color 0.3s ease, background-color 0.3s ease;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.375rem;
+        }
+        nav a:hover {
+            color: #D58A76;
+            background-color: #F1F5F9;
+        }
+        .active-nav {
+            color: #D58A76 !important;
+            font-weight: 600;
+            background-color: #FEF3F2;
+        }
+        .achievement-highlight {
+            color: #A25B4A;
+            font-weight: 600;
+        }
+        .hero-button {
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center; 
+            padding-left: 1.5rem; /* px-6 */
+            padding-right: 1.5rem; /* px-6 */
+            padding-top: 0.75rem; /* py-3 */
+            padding-bottom: 0.75rem; /* py-3 */
+            border-radius: 0.5rem; /* rounded-lg */
+            font-weight: 600; /* font-semibold */
+            transition-property: background-color, transform;
+            transition-duration: 0.3s;
+            font-size: 1.125rem; /* text-lg */
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); /* shadow-md */
+            margin-bottom: 0.75rem; /* mb-3 untuk mobile */
+        }
+        .hero-button i {
+            margin-right: 0.5rem; /* mr-2 */
+        }
+         @media (min-width: 768px) { /* md breakpoint */
+            .hero-button {
+                margin-bottom: 0; 
+                padding-left: 2rem; /* md:px-8 */
+                padding-right: 2rem; /* md:px-8 */
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-4 md:px-6 py-3 flex flex-wrap justify-between items-center">
+            <a href="#" class="text-xl font-bold text-[#4A5568] mb-2 md:mb-0">Ahmad's Portfolio</a>
+            <div class="space-x-1 sm:space-x-2 md:space-x-3 text-xs sm:text-sm md:text-base">
+                <a href="#profil" class="text-gray-700">Profil</a>
+                <a href="#keterampilan" class="text-gray-700">Keterampilan</a>
+                <a href="#pengalaman" class="text-gray-700">Pengalaman</a>
+                <a href="#proyek" class="text-gray-700">Proyek</a>
+                <a href="#pelatihan" class="text-gray-700">Pelatihan</a>
+                <a href="#pendidikan" class="text-gray-700">Pendidikan</a>
+                <a href="#kontak" class="text-gray-700">Kontak</a>
+            </div>
+        </nav>
+    </header>
+
+    <section id="hero" class="hero-gradient py-16 md:py-24">
+        <div class="container mx-auto px-6 text-center">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhBx5ymhNYZZTKpPBxrGQy8CJFdafnBmMm0dy67CvJQVzr-q2KGyvhDRSdBfTN94dxfvuv2ziekwHfNCSjOrfqXj1oe6lpv-VqBWmWZsNsOsCh3-Tw0q8KSGM-mjC6URbA1OwEIF4b92KyBemCiiHKmHF8eFaYgygsYFrsqZhIFyPqCMqInQOx8qaoJ6s0/s4032/IMG_6194.HEIC" alt="Foto Muhammad Sunardi Almuhajir" class="w-36 h-36 md:w-48 md:h-48 mx-auto rounded-full shadow-xl border-4 border-white mb-6 object-cover">
+
+            <h1 class="text-4xl md:text-5xl font-extrabold text-[#2D3748] mb-3">Muhammad Sunardi Almuhajir</h1>
+            <p class="text-lg md:text-xl text-[#4A5568] font-light mb-8 max-w-3xl mx-auto">Profesional muda yang disiplin dan bersemangat dengan ~10 tahun pengalaman di pelayanan & administrasi, kini diperkuat dengan keahlian digital, problem solving, dan komitmen pengembangan diri berkelanjutan.</p>
+            <div class="flex flex-col sm:flex-row sm:justify-center sm:space-x-4 space-y-3 sm:space-y-0">
+                <a href="mailto:sunarrddi@gmail.com" class="hero-button bg-[#D58A76] text-white hover:bg-[#C07A65]">
+                    <i class="fas fa-envelope"></i>Hubungi Saya
+                </a>
+                <a href="https://www.instagram.com/ahhh34d" target="_blank" rel="noopener noreferrer" class="hero-button bg-gray-700 text-white hover:bg-gray-600">
+                    <i class="fab fa-instagram"></i>Instagram
+                </a>
+                <a href="https://www.linkedin.com/in/ahhh34d/" target="_blank" rel="noopener noreferrer" class="hero-button bg-blue-600 text-white hover:bg-blue-500">
+                    <i class="fab fa-linkedin"></i>LinkedIn
+                </a>
+            </div>
+             <div class="mt-10 text-sm text-gray-600">
+                <p class="italic">"Tertarik pada tantangan pekerjaan lapangan dan siap berkontribusi aktif dalam lingkungan kerja yang dinamis."</p>
+            </div>
+        </div>
+    </section>
+    
+    <div class="container mx-auto px-6 py-12 md:py-16 space-y-12 md:space-y-20">
+
+        <section id="profil" class="scroll-mt-20">
+            <h2 class="text-2xl md:text-3xl font-bold text-[#4A5568] mb-8 section-title">Tentang Saya</h2>
+            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg">
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    Halo! Saya Ahmad, seorang individu yang dikenal disiplin, bersemangat tinggi, dan memiliki kemampuan manajemen waktu serta komunikasi interpersonal yang efektif. Dengan rekam jejak hampir satu dekade di bidang pelayanan pelanggan dan administrasi, saya telah terasah dalam kerja sama tim, pemecahan masalah, dan adaptasi di berbagai situasi.
+                </p>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    Saat ini, saya sedang menempuh studi S1 Administrasi Bisnis di Universitas Terbuka Samarinda. Sistem pembelajaran online yang fleksibel ini tidak hanya memungkinkan saya untuk tetap produktif bekerja, tetapi juga mengasah kemandirian, proaktivitas, dan manajemen diri dalam belajar. Saya juga aktif mengembangkan diri melalui berbagai seminar dan pelatihan, termasuk <span class="achievement-highlight">Basic Safety Training</span>, yang relevan dengan minat karir saya.
+                </p>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    Saya memiliki antusiasme besar untuk berkarier di pekerjaan lapangan, khususnya pada industri tambang atau kilang. Saya percaya, kombinasi antara pengalaman praktis, etos kerja yang kuat, dan keinginan belajar yang tinggi akan menjadi aset berharga. Di luar itu, saya aktif mengelola beberapa proyek digital seperti website informasi lowongan kerja <a href="http://www.etam.web.id" target="_blank" rel="noopener noreferrer" class="text-[#D58A76] hover:underline font-medium">etam.web.id</a> dan sedang merintis channel YouTube serta blog pribadi (<a href="http://ahhh34d.blogspot.com" target="_blank" rel="noopener noreferrer" class="text-[#D58A76] hover:underline font-medium">ahhh34d.blogspot.com</a>) sebagai wujud inisiatif dan eksplorasi potensi di dunia digital.
+                </p>
+                <div class="mt-6 border-t pt-6">
+                     <h4 class="text-lg font-semibold text-[#4A5568] mb-3">Aspirasi Utama:</h4>
+                     <p class="text-gray-700 mb-1"><i class="fas fa-hard-hat mr-2 text-[#D58A76]"></i>Berkontribusi dan berkembang di industri lapangan (tambang/kilang) yang menantang dan dinamis.</p>
+                     <p class="text-gray-700 mb-1"><i class="fas fa-laptop-code mr-2 text-[#D58A76]"></i>Memanfaatkan dan mengembangkan keahlian digital untuk inovasi dan efisiensi.</p>
+                     <p class="text-gray-700"><i class="fas fa-chart-line mr-2 text-[#D58A76]"></i>Membangun portofolio proyek digital yang berdampak dan berpotensi menjadi bisnis mandiri.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="keterampilan" class="scroll-mt-20">
+            <h2 class="text-2xl md:text-3xl font-bold text-[#4A5568] mb-8 section-title">Keahlian Inti</h2>
+            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg">
+                <p class="text-center text-gray-600 mb-8">Kombinasi keahlian teknis, administratif, dan interpersonal yang siap saya kontribusikan.</p>
+                <div class="flex flex-wrap justify-center gap-3 md:gap-4">
+                    <span class="skill-tag bg-[#E2E8F0] text-[#4A5568] px-4 py-2 rounded-full font-medium shadow-sm">Microsoft Office (Excel, Word)</span>
+                    <span class="skill-tag bg-[#E2E8F0] text-[#4A5568] px-4 py-2 rounded-full font-medium shadow-sm">Komunikasi Efektif</span>
+                    <span class="skill-tag bg-[#E2E8F0] text-[#4A5568] px-4 py-2 rounded-full font-medium shadow-sm">Public Speaking (Dasar)</span>
+                    <span class="skill-tag bg-[#E2E8F0] text-[#4A5568] px-4 py-2 rounded-full font-medium shadow-sm">Manajemen Waktu & Prioritas</span>
+                    <span class="skill-tag bg-[#E2E8F0] text-[#4A5568] px-4 py-2 rounded-full font-medium shadow-sm">Problem Solving Kreatif</span>
+                    <span class="skill-tag bg-[#E2E8F0] text-[#4A5568] px-4 py-2 rounded-full font-medium shadow-sm">Administrasi & Pembukuan Dasar</span>
+                    <span class="skill-tag bg-[#E2E8F0] text-[#4A5568] px-4 py-2 rounded-full font-medium shadow-sm">Pelayanan Pelanggan Prima</span>
+                    <span class="skill-tag bg-[#E2E8F0] text-[#4A5568] px-4 py-2 rounded-full font-medium shadow-sm">Kerja Sama Tim Solid</span>
+                    <span class="skill-tag bg-[#E2E8F0] text-[#4A5568] px-4 py-2 rounded-full font-medium shadow-sm">Adaptasi Cepat di Lapangan</span>
+                    <span class="skill-tag bg-[#D58A76] text-white px-4 py-2 rounded-full font-medium shadow-sm">Strategi Promosi Digital</span>
+                    <span class="skill-tag bg-[#D58A76] text-white px-4 py-2 rounded-full font-medium shadow-sm">Basic Bahasa Inggris</span>
+                    <span class="skill-tag bg-[#D58A76] text-white px-4 py-2 rounded-full font-medium shadow-sm">Manajemen Sosial Media</span>
+                    <span class="skill-tag bg-[#D58A76] text-white px-4 py-2 rounded-full font-medium shadow-sm">Pengembangan Web (Landing Page)</span>
+                    <span class="skill-tag bg-[#D58A76] text-white px-4 py-2 rounded-full font-medium shadow-sm">Manajemen Aplikasi Pesan Antar</span>
+                    <span class="skill-tag bg-[#D58A76] text-white px-4 py-2 rounded-full font-medium shadow-sm">Analisis & Peningkatan Penjualan</span>
+                    <span class="skill-tag bg-[#D58A76] text-white px-4 py-2 rounded-full font-medium shadow-sm">Manajemen Inventaris Efisien</span>
+                    <span class="skill-tag bg-[#D58A76] text-white px-4 py-2 rounded-full font-medium shadow-sm">Pelatihan Keselamatan Dasar (K3)</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="pengalaman" class="scroll-mt-20">
+            <h2 class="text-2xl md:text-3xl font-bold text-[#4A5568] mb-8 section-title">Pengalaman Profesional & Dampak</h2>
+            <div class="space-y-8">
+                <div class="experience-card bg-white p-6 md:p-8 rounded-xl shadow-lg">
+                    <div class="flex items-start space-x-4">
+                        <div class="icon-bg text-lg"><i class="fas fa-store-alt"></i></div>
+                        <div>
+                            <h3 class="text-xl md:text-2xl font-semibold text-[#2D3748]">Admin, Kasir & Digital Lead</h3>
+                            <p class="text-[#D58A76] font-medium">Warung Padang Mande, Balikpapan (2019 - Sekarang)</p>
+                            <ul class="list-disc list-inside mt-3 text-gray-700 space-y-2">
+                                <li>Mengelola operasional harian termasuk transaksi, laporan keuangan, pajak, dan tabungan.</li>
+                                <li>Berinteraksi dengan supplier, mengelola stok, dan <span class="achievement-highlight">berhasil mengurangi pemborosan bahan baku hingga 25%</span> melalui pencatatan yang lebih baik.</li>
+                                <li>Memberikan pelayanan prima kepada pelanggan dan menangani keluhan secara efektif untuk menjaga kepuasan.</li>
+                                <li>Mengembangkan dan mengelola kehadiran digital usaha:
+                                    <ul class="list-circle list-inside pl-5 mt-1 space-y-1">
+                                        <li>Merancang dan mengelola landing page usaha (<a href="http://mande.etam.web.id" target="_blank" rel="noopener noreferrer" class="text-[#D58A76] hover:underline">mande.etam.web.id</a>).</li>
+                                        <li>Mengelola akun sosial media, menghasilkan peningkatan interaksi pelanggan yang signifikan.</li>
+                                        <li>Mengelola platform aplikasi pemesanan makanan online (GoFood, dll.), memperluas jangkauan pasar.</li>
+                                    </ul>
+                                </li>
+                                <li>Merancang dan mengeksekusi strategi promosi digital yang <span class="achievement-highlight">berhasil melipatgandakan volume penjualan</span>.</li>
+                                <li>Menerapkan kemampuan problem solving dalam berbagai aspek operasional dan pelayanan.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience-card bg-white p-6 md:p-8 rounded-xl shadow-lg">
+                     <div class="flex items-start space-x-4">
+                        <div class="icon-bg text-lg"><i class="fas fa-concierge-bell"></i></div>
+                        <div>
+                            <h3 class="text-xl md:text-2xl font-semibold text-[#2D3748]">Waiter & Kasir</h3>
+                            <p class="text-[#D58A76] font-medium">Warung Padang Upik, Balikpapan (2014 - 2016)</p>
+                            <ul class="list-disc list-inside mt-3 text-gray-700 space-y-2">
+                                <li>Memastikan pesanan pelanggan diterima dan diproses secara akurat dan efisien.</li>
+                                <li>Bertanggung jawab atas pencatatan transaksi dan pembuatan laporan penjualan harian.</li>
+                                <li>Berkontribusi dalam koordinasi tim untuk menjaga kelancaran operasional dan ketersediaan stok.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience-card bg-white p-6 md:p-8 rounded-xl shadow-lg">
+                    <div class="flex items-start space-x-4">
+                        <div class="icon-bg text-lg"><i class="fas fa-paw"></i></div>
+                        <div>
+                            <h3 class="text-xl md:text-2xl font-semibold text-[#2D3748]">Peternak Sapi & Kambing</h3>
+                            <p class="text-[#D58A76] font-medium">Usaha Keluarga (2010 - 2014)</p>
+                            <ul class="list-disc list-inside mt-3 text-gray-700 space-y-2">
+                                <li>Bertanggung jawab penuh atas perawatan harian ternak termasuk pakan, kebersihan kandang, dan kesehatan.</li>
+                                <li>Mengembangkan kedisiplinan tinggi, tanggung jawab, dan ketekunan melalui pekerjaan fisik dan rutin.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="proyek" class="scroll-mt-20">
+            <h2 class="text-2xl md:text-3xl font-bold text-[#4A5568] mb-8 section-title">Proyek & Inisiatif Digital</h2>
+            <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+                <div class="project-card bg-white p-6 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-3">
+                        <div class="icon-bg text-lg mr-3"><i class="fas fa-briefcase"></i></div>
+                        <h3 class="text-xl font-semibold text-[#2D3748]">Etam.Web.Id - Info Loker Kaltim</h3>
+                    </div>
+                    <p class="text-gray-700 mb-3">Mengembangkan dan mengelola <a href="http://www.etam.web.id" target="_blank" rel="noopener noreferrer" class="text-[#D58A76] hover:underline font-medium">www.etam.web.id</a>, sebuah platform yang didedikasikan untuk membantu menyebarkan informasi lowongan kerja, khususnya di wilayah Kalimantan Timur.</p>
+                    <a href="http://www.etam.web.id" target="_blank" rel="noopener noreferrer" class="text-[#4A5568] font-medium hover:text-[#D58A76]">Kunjungi Situs <i class="fas fa-external-link-alt ml-1 text-xs"></i></a>
+                </div>
+                <div class="project-card bg-white p-6 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-3">
+                        <div class="icon-bg text-lg mr-3"><i class="fas fa-utensils"></i></div>
+                        <h3 class="text-xl font-semibold text-[#2D3748]">Landing Page Warung Mande</h3>
+                    </div>
+                    <p class="text-gray-700 mb-3">Merancang dan mengelola landing page untuk Warung Padang Mande (<a href="http://mande.etam.web.id" target="_blank" rel="noopener noreferrer" class="text-[#D58A76] hover:underline font-medium">mande.etam.web.id</a>) sebagai bagian dari strategi digital marketing usaha.</p>
+                    <a href="http://mande.etam.web.id" target="_blank" rel="noopener noreferrer" class="text-[#4A5568] font-medium hover:text-[#D58A76]">Lihat Landing Page <i class="fas fa-external-link-alt ml-1 text-xs"></i></a>
+                </div>
+                <div class="project-card bg-white p-6 rounded-xl shadow-lg">
+                     <div class="flex items-center mb-3">
+                        <div class="icon-bg text-lg mr-3"><i class="fab fa-blogger-b"></i></div>
+                        <h3 class="text-xl font-semibold text-[#2D3748]">Blog Pribadi</h3>
+                    </div>
+                    <p class="text-gray-700 mb-3">Aktif menulis dan berbagi pemikiran melalui blog pribadi di <a href="http://ahhh34d.blogspot.com" target="_blank" rel="noopener noreferrer" class="text-[#D58A76] hover:underline font-medium">ahhh34d.blogspot.com</a>.</p>
+                    <a href="http://ahhh34d.blogspot.com" target="_blank" rel="noopener noreferrer" class="text-[#4A5568] font-medium hover:text-[#D58A76]">Baca Blog Saya <i class="fas fa-external-link-alt ml-1 text-xs"></i></a>
+                </div>
+                <div class="project-card bg-white p-6 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-3">
+                        <div class="icon-bg text-lg mr-3"><i class="fab fa-youtube"></i></div>
+                        <h3 class="text-xl font-semibold text-[#2D3748]">Channel YouTube</h3>
+                    </div>
+                    <p class="text-gray-700 mb-3">Sedang dalam proses membangun channel YouTube pribadi untuk berbagi konten yang relevan dengan minat dan pembelajaran saya.</p>
+                    <a href="https://www.youtube.com/@ahhh34d" target="_blank" rel="noopener noreferrer" class="text-[#4A5568] font-medium hover:text-[#D58A76]">Kunjungi Channel <i class="fas fa-external-link-alt ml-1 text-xs"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="pelatihan" class="scroll-mt-20">
+            <h2 class="text-2xl md:text-3xl font-bold text-[#4A5568] mb-8 section-title">Pelatihan & Seminar Diikuti</h2>
+            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg">
+                <p class="text-center text-gray-600 mb-8">Komitmen untuk pembelajaran berkelanjutan melalui berbagai pelatihan dan seminar.</p>
+                <div class="grid md:grid-cols-2 gap-x-8 gap-y-4">
+                    <div class="training-card p-4 rounded-lg border bg-slate-50">
+                        <p class="font-medium text-gray-800"><i class="fas fa-shield-alt mr-2 text-[#D58A76]"></i>Basic Safety Training (Webinar)</p>
+                    </div>
+                    <div class="training-card p-4 rounded-lg border bg-slate-50">
+                        <a href="https://ahhh34d.blogspot.com/2024/11/training-of-trainers-duta-pepelingasih.html" target="_blank" rel="noopener noreferrer" class="font-medium text-gray-800 hover:text-[#D58A76]"><i class="fas fa-users-cog mr-2 text-[#D58A76]"></i>Training of Trainers - PEPELINGASIH Balikpapan</a>
+                    </div>
+                    <div class="training-card p-4 rounded-lg border bg-slate-50">
+                        <a href="https://ahhh34d.blogspot.com/2024/11/sosialisasi-penyadaran-pemuda-sinergi.html" target="_blank" rel="noopener noreferrer" class="font-medium text-gray-800 hover:text-[#D58A76]"><i class="fas fa-user-shield mr-2 text-[#D58A76]"></i>Sosialisasi Penyadaran Pemuda - Cegah Terorisme & Radikalisme (Kaltim)</a>
+                    </div>
+                    <div class="training-card p-4 rounded-lg border bg-slate-50">
+                        <a href="https://ahhh34d.blogspot.com/2024/11/forum-kepariwisataan-ekonomi-kreatif.html" target="_blank" rel="noopener noreferrer" class="font-medium text-gray-800 hover:text-[#D58A76]"><i class="fas fa-gamepad mr-2 text-[#D58A76]"></i>Forum Kepariwisataan Ekonomi Kreatif - Application & Games East Kalimantan</a>
+                    </div>
+                    <div class="training-card p-4 rounded-lg border bg-slate-50">
+                        <a href="https://ahhh34d.blogspot.com/2025/06/seminar-work-abroad-schoolar-hunters.html" target="_blank" rel="noopener noreferrer" class="font-medium text-gray-800 hover:text-[#D58A76]"><i class="fas fa-plane-departure mr-2 text-[#D58A76]"></i>Seminar Work Abroad & Schoolar Hunters</a>
+                    </div>
+                    <div class="training-card p-4 rounded-lg border bg-slate-50">
+                         <a href="https://ahhh34d.blogspot.com/2025/06/seminar-gen-z-melek-financial.html" target="_blank" rel="noopener noreferrer" class="font-medium text-gray-800 hover:text-[#D58A76]"><i class="fas fa-chart-pie mr-2 text-[#D58A76]"></i>Seminar Gen Z Melek Financial</a>
+                    </div>
+                     <div class="training-card p-4 rounded-lg border bg-slate-50">
+                        <a href="https://ahhh34d.blogspot.com/2025/06/seminar-berprestasi-wujudkan-inovasi.html" target="_blank" rel="noopener noreferrer" class="font-medium text-gray-800 hover:text-[#D58A76]"><i class="fas fa-star mr-2 text-[#D58A76]"></i>Seminar Berprestasi - Wujudkan Inovasi Pemuda Balikpapan Menuju Indonesia Emas 2045</a>
+                    </div>
+                    <div class="training-card p-4 rounded-lg border bg-slate-50">
+                        <p class="font-medium text-gray-800"><i class="fas fa-magnet mr-2 text-[#D58A76]"></i>Seminar Magnet Rezeki (LOA) - Rahasia Menarik Rezeki Dengan Cara Allah</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pendidikan" class="scroll-mt-20">
+             <h2 class="text-2xl md:text-3xl font-bold text-[#4A5568] mb-8 section-title">Latar Belakang Pendidikan & Organisasi</h2>
+            <div class="grid md:grid-cols-2 gap-10">
+                <div>
+                    <h3 class="text-xl font-semibold text-[#2D3748] mb-4">Pendidikan Formal</h3>
+                    <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg space-y-6">
+                        <div>
+                            <h4 class="text-lg font-semibold text-[#2D3748]">S1 Administrasi Bisnis</h4>
+                            <p class="text-[#D58A76] text-sm">Universitas Terbuka Samarinda (2024 - Sekarang)</p>
+                            <p class="text-xs text-gray-600 mt-1">Pembelajaran fleksibel dengan fokus pada manajemen, keuangan, dan operasional bisnis.</p>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-[#2D3748]">Paket C (Setara SMA)</h4>
+                            <p class="text-[#D58A76] text-sm">PKBM Bunga Satriah Ilmu Majene (2022 - 2024)</p>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-[#2D3748]">Paket B (Setara SMP)</h4>
+                            <p class="text-[#D58A76] text-sm">PKBM Siporalle (2015 - 2018)</p>
+                        </div>
+                         <div>
+                            <h4 class="text-lg font-semibold text-[#2D3748]">SDN 22 Inpres Pelattoang</h4>
+                            <p class="text-[#D58A76] text-sm">(2004 - 2010)</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-[#2D3748] mb-4">Keaktifan Organisasi</h3>
+                    <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg space-y-4">
+                        <p class="text-gray-700"><i class="fas fa-hands-helping mr-2 text-[#D58A76]"></i>Anggota Duta Pepelingasih Balikpapan (2024 - sekarang)</p>
+                        <p class="text-gray-700"><i class="fas fa-seedling mr-2 text-[#D58A76]"></i>Komunitas Konservasi Penyu Majene (2023 - sekarang)</p>
+                        <p class="text-gray-700"><i class="fas fa-globe mr-2 text-[#D58A76]"></i>Partisipan World Clean Up Day Balikpapan (2024)</p>
+                        <p class="text-gray-700"><i class="fas fa-user-friends mr-2 text-[#D58A76]"></i>Anggota Pramuka Kabupaten Majene (2009 - 2011)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="kontak" class="scroll-mt-20 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold text-[#4A5568] mb-8 section-title mx-auto">Mari Terhubung!</h2>
+            <div class="bg-white p-8 md:p-10 rounded-xl shadow-lg max-w-3xl mx-auto"> 
+                <p class="text-gray-700 mb-6">
+                    Saya sangat antusias untuk berdiskusi lebih lanjut mengenai peluang, kolaborasi, atau sekadar bertukar ide. Silakan hubungi saya:
+                </p>
+                <div class="flex flex-wrap justify-center gap-4 md:gap-6">
+                    <a href="mailto:sunarrddi@gmail.com" class="inline-flex items-center text-base text-[#D58A76] hover:text-[#C07A65] transition px-3 py-2 rounded-md hover:bg-orange-50">
+                        <i class="fas fa-envelope mr-2"></i> sunarrddi@gmail.com
+                    </a>
+                    <span class="inline-flex items-center text-base text-gray-700 px-3 py-2">
+                        <i class="fas fa-phone-alt mr-2 text-[#D58A76]"></i> 0823-5473-7978
+                    </span>
+                    <a href="https://www.instagram.com/ahhh34d" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-base text-[#D58A76] hover:text-[#C07A65] transition px-3 py-2 rounded-md hover:bg-orange-50">
+                        <i class="fab fa-instagram mr-2"></i> @ahhh34d
+                    </a>
+                    <a href="https://www.linkedin.com/in/ahhh34d/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-base text-[#D58A76] hover:text-[#C07A65] transition px-3 py-2 rounded-md hover:bg-orange-50">
+                        <i class="fab fa-linkedin mr-2"></i> LinkedIn Profile
+                    </a>
+                </div>
+                <p class="mt-6 text-sm text-gray-600">
+                    Lokasi: Jl. Jenderal Ahmad Yani RT.13 No.18, Kel. Karang Jati, Balikpapan Tengah.
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <footer class="text-center py-8 mt-12 border-t border-gray-200 bg-gray-100">
+        <p class="text-gray-600 text-sm">© <span id="currentYear"></span> Muhammad Sunardi Almuhajir.</p>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        const navLinks = document.querySelectorAll('nav a[href^="#"]');
+        const sections = document.querySelectorAll('main section[id]'); 
+        const header = document.querySelector('header');
+        const headerHeight = header ? header.offsetHeight : 0;
+
+        function changeNavActiveState() {
+            let currentSectionId = '';
+            let minDistance = Infinity;
+            let inViewport = false;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - headerHeight - 50; 
+                const sectionBottom = sectionTop + section.offsetHeight;
+                const scrollPosition = window.pageYOffset;
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                    currentSectionId = section.getAttribute('id');
+                    inViewport = true;
+                }
+                
+                if (!inViewport) {
+                    const distanceToTop = Math.abs(scrollPosition - sectionTop);
+                    if (distanceToTop < minDistance) {
+                        minDistance = distanceToTop;
+                        currentSectionId = section.getAttribute('id');
+                    }
+                }
+            });
+            
+             if (currentSectionId) {
+                navLinks.forEach(link => {
+                    link.classList.toggle('active-nav', link.getAttribute('href').substring(1) === currentSectionId);
+                });
+            }
+        }
+        
+        window.addEventListener('scroll', changeNavActiveState);
+        document.addEventListener('DOMContentLoaded', changeNavActiveState);
+
+        navLinks.forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href.startsWith('#') && href.length > 1) { 
+                    e.preventDefault();
+                    const targetId = href;
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
